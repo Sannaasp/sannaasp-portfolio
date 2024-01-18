@@ -1,0 +1,62 @@
+.about-title {
+  font-size: 50px;
+  color: #eeece2;
+}
+
+.about-container {
+  border-radius: 20px;
+  /* padding: 50px; */
+  color: #eeece2;
+  width: 70%;
+}
+
+.about-flex {
+  padding: 90px;
+  background-color: #333c2e;
+  /* width: 50%; */
+
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.experiences-container {
+  /* background-color: #ffdc7a; */
+  padding: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.custom-ul {
+  list-style-type: disc;
+  padding-left: 20px; /* Adjust as needed */
+}
+
+.project-title {
+  font-size: 50px;
+  /* padding: 30px 0px 0px 100px; */
+}
+
+.about-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-box-container {
+  /* padding: 30px 0px 0px 90px; */
+}
+
+.text-column {
+  margin: 40px;
+  width: 300px;
+}
+
+.about-project-title {
+  font-size: 50px;
+  /* padding: 30px 0px 0px 100px; */
+}
+
+.about-box-container {
+  padding: 90px;
+}

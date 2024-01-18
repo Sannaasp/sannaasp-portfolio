@@ -1,0 +1,47 @@
+* {
+  /* margin: auto; */
+  padding: auto;
+  box-sizing: border-box;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  font-family: sans-serif;
+  justify-content: center;
+}
+
+.card {
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+  margin: 50px;
+}
+
+.projects-title {
+  font-size: 50px;
+  padding: 30px 0px 0px 100px;
+}
+
+.skills-container {
+  background-color: #333c2e;
+  padding: 70px 0px 70px 0px;
+}
+
+.skills-text-container {
+  /* padding: 70px; */
+}
+
+.projects-button {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.experiences-index-container {
+  /* padding: 40px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

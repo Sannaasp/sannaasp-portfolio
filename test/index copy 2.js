@@ -6,7 +6,16 @@ import { useEffect } from "react";
 import { Header } from "../components/Header";
 import { Contact } from "../components/Contact";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { navLinks } from "../styles/layout.module.css";
+import {
+  container,
+  heading,
+  navLinks,
+  navLinkItem,
+  navLinkText,
+  siteTitle,
+} from "../styles/layout.module.css";
+
+// import { Skills } from "../components/Skills";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../styles/index.css";
@@ -56,26 +65,12 @@ const IndexPage = ({ pageTitle, children }) => {
           skillsTitle
         }
       }
-
-      allContentfulEducation {
-        nodes {
-          title
-          description {
-            description
-          }
-          longDescription {
-            longDescription
-          }
-        }
-      }
     }
   `);
 
   useEffect(() => {
     AOS.init();
   }, []);
-
-  const projectsToDisplay = data.allContentfulProjekt.nodes.slice(0, 3);
 
   return (
     <Layout>
@@ -99,24 +94,20 @@ const IndexPage = ({ pageTitle, children }) => {
               className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white projects-title test-title"
               style={{ transition: "opacity 2s ease-in-out" }}
             > */}
-            <p
-              style={{ color: "#333c2e", fontFamily: "DMS-font" }}
-              className="project-title"
-            >
+            <p style={{ color: "#333c2e" }} className="project-title">
               My projects
             </p>{" "}
             {/* </header> */}
           </div>
         </div>
         <div className="projects-container">
-          {projectsToDisplay.map((Projekt) => {
+          {data.allContentfulProjekt.nodes.map((Projekt) => {
             const image = getImage(Projekt.image.gatsbyImageData);
             return (
               <div key={Projekt.id}>
                 <Link to={Projekt.slug}>
                   <div data-aos="fade-up" className="card">
                     <Card
-                      limit={3}
                       title={Projekt.title}
                       descriptions={Projekt.descriptions.descriptions}
                       image={image}
@@ -162,100 +153,39 @@ const IndexPage = ({ pageTitle, children }) => {
         <div className="skills-container">
           <div className="projects-title">
             {/* <header className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white projects-title"> */}
-            <p
-              style={{ color: "#eeece2", fontFamily: "DMS-font" }}
-              className="project-title"
-            >
+            <p style={{ color: "#eeece2" }} className="project-title">
               Skills & Experiences
             </p>
             {/* </header> */}
           </div>
-
-          <div className="experiences-index-container">
-            <div className="text-column">
-              <div>
-                <p
-                  style={{ fontSize: "40px", color: "#eeece2" }}
-                  className="font-semibold"
-                >
+          <div className="skills-text-container">
+            <div className="flex justify-between">
+              {/* Ta bort ul här */}
+              <div className="w-1/2 pr-4">
+                <p style={{ color: "#eeece2" }} className="font-semibold">
                   Skills
                 </p>
-              </div>
-              <div>
-                <ul
-                  style={{
-                    color: "#eeece2",
-                    listStyleType: "disc",
-                    lineHeight: "2.5",
-                  }}
-                >
+                <ul style={{ color: "#eeece2" }}>
                   {data.allContentfulSkills.nodes.slice(0, 3).map((skill) => (
-                    <li key={skill.slug}>{skill.skillsTitle}</li>
+                    <li key={skill.slug} className="text-xl">
+                      {skill.skillsTitle}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="w-1/2 pl-4">
+                <p style={{ color: "#eeece2" }} className="font-semibold">
+                  Experiences
+                </p>
+                <ul style={{ color: "#eeece2" }}>
+                  {data.allContentfulSkills.nodes.slice(0, 3).map((skill) => (
+                    <li key={skill.slug} className="text-xl">
+                      {skill.skillsTitle}
+                    </li>
                   ))}
                 </ul>
               </div>
             </div>
-
-            <div className="text-column">
-              <div>
-                <p
-                  style={{
-                    fontSize: "40px",
-                    color: "#eeece2",
-                  }}
-                  className="font-semibold"
-                >
-                  Experiences
-                </p>
-              </div>
-              <div>
-                <ul
-                  style={{
-                    color: "#eeece2",
-                    listStyleType: "disc",
-                    lineHeight: "2.5",
-                  }}
-                >
-                  {data.allContentfulEducation.nodes
-                    .slice(0, 3)
-                    .map((education) => (
-                      <li key={education.slug}>{education.title}</li>
-                    ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="projects-button">
-            <a
-              href="#"
-              className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
-              style={{
-                backgroundColor: "#eeece2",
-                color: "#333c2e", // Replace with your desired color
-                hover: {
-                  backgroundColor: "#yourNewHoverColor", // Replace with your desired hover color
-                },
-              }}
-            >
-              <Link to="/about" className={navLinks}>
-                All experiences
-                <svg
-                  className="w-3.5 h-3.5 ms-2 rtl:rotate-180"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                  />
-                </svg>
-              </Link>
-            </a>
           </div>
         </div>
       </main>

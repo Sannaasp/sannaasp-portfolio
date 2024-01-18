@@ -1,0 +1,30 @@
+.contact-image {
+  width: 30px;
+  height: 30px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: row;
+}
+
+.contact-icons {
+  display: flex;
+  margin: 50px;
+  align-items: center;
+  flex-direction: row;
+}
+
+.icons {
+  margin: 30px;
+}
+
+.contact-button a:hover {
+  /* background-color: #4a5568; */
+  transition: background-color 0.3s ease;
+  padding: 12px 20px; /* Justera fyllningen efter dina önskemål */
+  transition: padding 0.3s ease;
+}
