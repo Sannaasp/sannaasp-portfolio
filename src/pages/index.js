@@ -68,6 +68,13 @@ const IndexPage = ({ pageTitle, children }) => {
           }
         }
       }
+
+      allContentfulWork {
+        nodes {
+          slug
+          title
+        }
+      }
     }
   `);
 
@@ -171,9 +178,9 @@ const IndexPage = ({ pageTitle, children }) => {
             {/* </header> */}
           </div>
 
-          <div className="experiences-index-container">
+          <div className="experiences-container">
             <div className="text-column">
-              <div>
+              <div className="flex justify-center">
                 <p
                   style={{ fontSize: "40px", color: "#eeece2" }}
                   className="font-semibold"
@@ -181,12 +188,14 @@ const IndexPage = ({ pageTitle, children }) => {
                   Skills
                 </p>
               </div>
-              <div>
+              <div className="flex justify-center">
                 <ul
+                  className="flex justify-center flex-col custom-ul space-y-2"
                   style={{
                     color: "#eeece2",
                     listStyleType: "disc",
                     lineHeight: "2.5",
+                    width: "300px",
                   }}
                 >
                   {data.allContentfulSkills.nodes.slice(0, 3).map((skill) => (
@@ -195,9 +204,8 @@ const IndexPage = ({ pageTitle, children }) => {
                 </ul>
               </div>
             </div>
-
             <div className="text-column">
-              <div>
+              <div className="flex justify-center">
                 <p
                   style={{
                     fontSize: "40px",
@@ -205,11 +213,12 @@ const IndexPage = ({ pageTitle, children }) => {
                   }}
                   className="font-semibold"
                 >
-                  Experiences
+                  Eduaction
                 </p>
               </div>
-              <div>
+              <div className="flex justify-center">
                 <ul
+                  className="flex justify-center flex-col"
                   style={{
                     color: "#eeece2",
                     listStyleType: "disc",
@@ -224,7 +233,35 @@ const IndexPage = ({ pageTitle, children }) => {
                 </ul>
               </div>
             </div>
+
+            <div className="text-column">
+              <div className="flex justify-center">
+                <p
+                  style={{
+                    fontSize: "40px",
+                    color: "#eeece2",
+                  }}
+                  className="font-semibold"
+                >
+                  Work
+                </p>
+              </div>
+              <div className="flex justify-center ">
+                <ul
+                  style={{
+                    color: "#eeece2",
+                    listStyleType: "disc",
+                    lineHeight: "2.5",
+                  }}
+                >
+                  {data.allContentfulWork.nodes.slice(0, 3).map((work) => (
+                    <li key={work.slug}>{work.title}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
+
           <div className="projects-button">
             <a
               href="#"

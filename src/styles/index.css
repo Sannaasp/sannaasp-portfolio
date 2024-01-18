@@ -33,15 +33,25 @@
   /* padding: 70px; */
 }
 
+.text-column {
+  margin: 40px;
+  width: 300px;
+  display: inline-block;
+  flex-direction: column;
+  align-items: center; /* Centrera innehållet horisontellt */
+  text-align: left;
+}
+
 .projects-button {
   display: flex;
   justify-content: center;
   padding: 30px;
 }
 
-.experiences-index-container {
+.experiences-container {
   /* padding: 40px; */
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 70px 0px 70px 0px;
 }
