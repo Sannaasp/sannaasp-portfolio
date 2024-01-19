@@ -2,11 +2,11 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 
-if (process.env.NODE_ENV !== "production") {
-  dotenv.config();
-}
+// if (process.env.NODE_ENV !== "production") {
+//   dotenv.config();
+// }
 
 module.exports = {
   siteMetadata: {
