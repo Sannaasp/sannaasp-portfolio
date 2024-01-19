@@ -4,10 +4,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import "../styles/header.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { navLinks } from "../styles/layout.module.css";
-
-export const Header = ({ headerImg }) => {
-  console.log(headerImg);
-
+// eslint-disable-next-line no-empty-pattern
+export const Header = ({}) => {
   const data = useStaticQuery(graphql`
     query {
       contentfulHeader {
@@ -22,16 +20,13 @@ export const Header = ({ headerImg }) => {
       }
     }
   `);
-  console.log(data);
 
   const image = getImage(data.contentfulHeader.headerImg.gatsbyImageData);
-
-  console.log(data.contentfulHeader?.headerImg.gatsbyImageData);
 
   return (
     <div className="flex-container">
       <div className="text-container">
-        <div data-aos="fade-right" data-aos-duration="2000">
+        <div /*data-aos="fade-right" data-aos-duration="2000"*/>
           <header
             className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white custom-header"
             style={{ transition: "opacity 2s ease-in-out", color: "#333c2e" }}
@@ -45,7 +40,7 @@ export const Header = ({ headerImg }) => {
         <p>{data.contentfulHeader.headerDescription.headerDescription}</p>
         <div className="contact-button">
           <a
-            href="#"
+            href="/#"
             className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
             style={{
               backgroundColor: "#333c2e",

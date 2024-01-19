@@ -4,12 +4,12 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import { Card } from "../components/Card";
 import { useEffect } from "react";
 import { Header } from "../components/Header";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 import { navLinks } from "../styles/layout.module.css";
-import AOS from "aos";
+// import AOS from "aos";
 import "aos/dist/aos.css";
 import "../styles/index.css";
-
+// eslint-disable-next-line no-empty-pattern
 const IndexPage = ({}) => {
   const data = useStaticQuery(graphql`
     query IndexPageQuery {
@@ -73,7 +73,7 @@ const IndexPage = ({}) => {
   `);
 
   useEffect(() => {
-    AOS.init();
+    //AOS.init();
   }, []);
 
   const projectsToDisplay = data.allContentfulProjekt.nodes.slice(0, 3);
@@ -82,7 +82,7 @@ const IndexPage = ({}) => {
     <Layout>
       <main>
         <div className="test-box">
-          <div data-aos="fade-up">
+          <div /*data-aos="fade-up"*/>
             <Header
               headerTitle={data.contentfulHeader.headerTitle}
               headerImg={data.contentfulHeader.headerImg.gatsbyImageData}
@@ -107,7 +107,7 @@ const IndexPage = ({}) => {
             return (
               <div key={Projekt.id}>
                 <Link to={Projekt.slug}>
-                  <div data-aos="fade-up" className="card">
+                  <div /*data-aos="fade-up"*/ className="card">
                     <Card
                       limit={3}
                       title={Projekt.title}
@@ -123,7 +123,7 @@ const IndexPage = ({}) => {
 
         <div className="projects-button">
           <a
-            href="#"
+            href="/#"
             className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
             style={{
               backgroundColor: "#333c2e",
@@ -246,7 +246,7 @@ const IndexPage = ({}) => {
 
           <div className="projects-button">
             <a
-              href="#"
+              href="/#"
               className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
               style={{
                 backgroundColor: "#eeece2",

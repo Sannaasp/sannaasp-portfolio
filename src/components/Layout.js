@@ -2,8 +2,7 @@ import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import { Contact } from "../components/Contact";
-import loggo from "../images/loggo.png";
-import AOS from "aos";
+// import AOS from "aos";
 import { container, heading } from "../styles/layout.module.css";
 
 const Layout = ({ pageTitle, children }) => {
@@ -22,7 +21,7 @@ const Layout = ({ pageTitle, children }) => {
     }
   `);
 
-  AOS.init();
+  //AOS.init();
 
   return (
     <div style={{ backgroundColor: "#eeece2" }} className={container}>
@@ -57,9 +56,9 @@ const Layout = ({ pageTitle, children }) => {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                 />
               </svg>
@@ -76,9 +75,9 @@ const Layout = ({ pageTitle, children }) => {
                 >
                   <path
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                   />
                 </svg>
@@ -108,9 +107,9 @@ const Layout = ({ pageTitle, children }) => {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M1 1h15M1 7h15M1 13h15"
                 />
               </svg>
@@ -135,9 +134,9 @@ const Layout = ({ pageTitle, children }) => {
                   >
                     <path
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
                     />
                   </svg>
@@ -153,7 +152,7 @@ const Layout = ({ pageTitle, children }) => {
                 <li>
                   <Link to="/contactform">
                     <a
-                      href="#"
+                      href="/#"
                       className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lightgreen-500 md:p-0 md:dark:hover:text-lightgreen-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                       aria-current="page"
                     >
@@ -164,7 +163,7 @@ const Layout = ({ pageTitle, children }) => {
                 <li>
                   <Link to="/about">
                     <a
-                      href="#"
+                      href="/#"
                       className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lightgreen-500 md:p-0 md:dark:hover:text-lightgreen-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     >
                       About
@@ -174,7 +173,7 @@ const Layout = ({ pageTitle, children }) => {
                 <li>
                   <Link to="/allprojects">
                     <a
-                      href="#"
+                      href="/#"
                       className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lightgreen-500 md:p-0 md:dark:hover:text-lightgreen-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     >
                       Projects

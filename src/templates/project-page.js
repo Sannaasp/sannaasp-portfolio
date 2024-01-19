@@ -83,10 +83,15 @@ const ProjectPage = ({ data }) => {
 // Denna GraphQL-fråga används för att hämta information om ett projekt från Contentful baserat på dess unika slug. Den extraherar projektets titel, länk, beskrivningar (i form av en lista), lång beskrivning och bilder för användning i den associerade Gatsby-sidan.
 
 export const pageQuery = graphql`
-  query ($slug: String!) {
+  query templateQuery($slug: String!) {
     projekt: contentfulProjekt(slug: { eq: $slug }) {
+      id
+      slug
       title
       link
+      image {
+        gatsbyImageData
+      }
       descriptions {
         descriptions
       }

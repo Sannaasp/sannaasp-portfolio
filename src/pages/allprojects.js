@@ -49,7 +49,7 @@ const AllProjectsPage = ({ data }) => {
             return (
               <div key={Projekt.id}>
                 <Link to={`/${Projekt.slug}`} key={Projekt.id}>
-                  <div data-aos="fade-up" className="card">
+                  <div /*data-aos="fade-up"*/ className="card">
                     <Card
                       title={Projekt.title}
                       descriptions={Projekt.descriptions.descriptions}
