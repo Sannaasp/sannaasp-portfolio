@@ -5,11 +5,17 @@ import { Card } from "../components/Card";
 import "../styles/allprojects.css";
 import { getImage } from "gatsby-plugin-image";
 
+// Komponenten AllProjectsPage tar emot data som prop och visar en sida med alla projekt.
+// Använder useState-hook för att hantera den valda kategorin för att filtrera projekt.
 const AllProjectsPage = ({ data }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  // Hämtar alla projekt från data och lagrar dem i allPosts.
   const allPosts = data.allContentfulProjekt.nodes;
+  // Skapar en array av unika kategorier, inklusive "All", från alla projekt.
   const categories = ["All", ...new Set(allPosts.map((post) => post.category))];
 
+  // Skapar en ny array 'filteredPosts' baserat på det valda valet av kategori.
+  // Om 'selectedCategory' är "All", inkludera alla poster, annars filtreras poster baserat på kategorin.
   const filteredPosts =
     selectedCategory === "All"
       ? allPosts

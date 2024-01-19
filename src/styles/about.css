@@ -70,11 +70,11 @@
   .about-flex {
     flex-direction: column; /* Ändra riktningen till kolumn för mindre skärmar */
     align-items: center; /* Centrera innehållet vertikalt */
-    text-align: center; /* Centrera texten */
   }
 
   .about-box {
     margin-left: 0; /* Återställ marginalen för mindre skärmar */
     margin-top: 20px; /* Lägg till lite mellanrum ovanför boxen */
+    margin-bottom: 50px;
   }
 }

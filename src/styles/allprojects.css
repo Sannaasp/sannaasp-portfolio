@@ -20,3 +20,10 @@
   background-color: #333c2e;
   color: #ffffff;
 }
+
+@media screen and (max-width: 768px) {
+  .category-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}

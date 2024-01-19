@@ -93,12 +93,12 @@ const IndexPage = ({}) => {
           </div>
 
           <div className="projects-title">
-            <p
+            <h2
               style={{ color: "#333c2e", fontFamily: "DMS-font" }}
               className="project-title"
             >
               My projects
-            </p>{" "}
+            </h2>{" "}
           </div>
         </div>
         <div className="projects-container">
@@ -156,24 +156,24 @@ const IndexPage = ({}) => {
         <div className="skills-container">
           <div className="projects-title">
             {/* <header className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white projects-title"> */}
-            <p
+            <h2
               style={{ color: "#eeece2", fontFamily: "DMS-font" }}
               className="project-title"
             >
               Skills & Experiences
-            </p>
+            </h2>
             {/* </header> */}
           </div>
 
           <div className="experiences-container">
             <div className="text-column">
-              <p
+              <h3
                 style={{ fontSize: "40px", color: "#eeece2" }}
                 className="font-semibold"
               >
                 Skills
-              </p>
-              <div className="flex justify-center">
+              </h3>
+              <div /*className="flex justify-center"*/>
                 <ul
                   className="flex justify-center flex-col custom-ul space-y-2"
                   style={{
@@ -190,7 +190,7 @@ const IndexPage = ({}) => {
               </div>
             </div>
             <div className="text-column">
-              <p
+              <h3
                 style={{
                   fontSize: "40px",
                   color: "#eeece2",
@@ -198,7 +198,7 @@ const IndexPage = ({}) => {
                 className="font-semibold"
               >
                 Education
-              </p>
+              </h3>
               <div>
                 <ul
                   className="custom-ul space-y-2"
@@ -218,7 +218,7 @@ const IndexPage = ({}) => {
             </div>
 
             <div className="text-column">
-              <p
+              <h3
                 style={{
                   fontSize: "40px",
                   color: "#eeece2",
@@ -226,7 +226,7 @@ const IndexPage = ({}) => {
                 className="font-semibold"
               >
                 Work
-              </p>
+              </h3>
               <div>
                 <ul
                   className="custom-ul space-y-2"

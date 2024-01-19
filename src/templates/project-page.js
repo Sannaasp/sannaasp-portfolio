@@ -6,6 +6,9 @@ import Layout from "../components/Layout";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+// Komponenten ProjectPage tar emot data som prop och visar detaljer för ett projekt.
+// Hämta bilder från projektets data och konvertera dem till GatsbyImage-objekt.
+
 const ProjectPage = ({ data }) => {
   const images = data.projekt.images.map((image) => getImage(image));
 
@@ -14,7 +17,9 @@ const ProjectPage = ({ data }) => {
       <div className="project-page-container">
         <div className="project-page-header">
           <div className="carousel-container">
+            {/* Använder ett externt Carousel-bibliotek för att skapa en bildkarusell med autoPlay och infiniteLoop */}
             <Carousel autoPlay infiniteLoop className="w-full h-full">
+              {/* Mappar igenom varje bild i images och skapar en bildkomponent i karusellen */}
               {images.map((image, index) => (
                 <div key={index} className="h-full w-full">
                   <GatsbyImage
