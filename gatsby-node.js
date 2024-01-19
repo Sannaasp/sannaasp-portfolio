@@ -37,20 +37,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   }
 
-  const aboutPageTemplate = path.resolve("./src/templates/about.js");
-  createPage({
-    path: "/about",
-    component: aboutPageTemplate,
-    context: {
-      // Eventuell kontext för About-sidan
-    },
-  });
-
   const AllProjectsPageTemplate = path.resolve("./src/pages/allprojects.js");
   createPage({
     path: "/allprojects",
     component: AllProjectsPageTemplate,
-    context: {
-    },
+    context: {},
   });
 };

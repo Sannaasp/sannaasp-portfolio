@@ -3,16 +3,9 @@ import { Link } from "gatsby";
 import { useStaticQuery, graphql } from "gatsby";
 import "../styles/header.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-  siteTitle,
-} from "../styles/layout.module.css";
+import { navLinks } from "../styles/layout.module.css";
 
-export const Header = ({ headerTitle, headerImg, headerDescription }) => {
+export const Header = ({ headerImg }) => {
   console.log(headerImg);
 
   const data = useStaticQuery(graphql`
@@ -43,9 +36,9 @@ export const Header = ({ headerTitle, headerImg, headerDescription }) => {
             className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white custom-header"
             style={{ transition: "opacity 2s ease-in-out", color: "#333c2e" }}
           >
-            <p style={{ color: "#333c2e" }}>
+            <h1 style={{ color: "#333c2e" }}>
               {data.contentfulHeader.headerTitle}
-            </p>
+            </h1>
           </header>
         </div>
 
@@ -55,9 +48,9 @@ export const Header = ({ headerTitle, headerImg, headerDescription }) => {
             href="#"
             className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
             style={{
-              backgroundColor: "#333c2e", // Replace with your desired color
+              backgroundColor: "#333c2e",
               hover: {
-                backgroundColor: "#yourNewHoverColor", // Replace with your desired hover color
+                backgroundColor: "#yourNewHoverColor",
               },
             }}
           >
@@ -83,11 +76,6 @@ export const Header = ({ headerTitle, headerImg, headerDescription }) => {
         </div>
       </div>
       <div className="header-container">
-        {/* <img
-          className="header-img"
-          src={data.contentfulHeader.headerImg.file.url}
-          alt="Header Image"
-        /> */}
         <div className="img-container">
           <GatsbyImage
             image={image}

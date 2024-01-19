@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   flex-direction: row;
 }
 
@@ -23,8 +22,18 @@
 }
 
 .contact-button a:hover {
-  /* background-color: #4a5568; */
   transition: background-color 0.3s ease;
-  padding: 12px 20px; /* Justera fyllningen efter dina önskemål */
+  padding: 12px 20px;
   transition: padding 0.3s ease;
+}
+
+@media screen and (max-width: 900px) {
+  .contact-container {
+    flex-direction: column; /* Ändra riktningen till kolumn för mindre skärmar */
+    display: flex;
+  }
+
+  .contact-icons {
+    margin: 20px; /* Justera mellanrummet för mindre skärmar */
+  }
 }

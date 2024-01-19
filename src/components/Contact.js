@@ -2,14 +2,6 @@ import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { useStaticQuery, graphql } from "gatsby";
 import "../styles/contact.css";
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-  siteTitle,
-} from "../styles/layout.module.css";
 
 export const Contact = () => {
   const data = useStaticQuery(graphql`

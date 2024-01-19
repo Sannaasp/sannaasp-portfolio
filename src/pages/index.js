@@ -4,14 +4,13 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import { Card } from "../components/Card";
 import { useEffect } from "react";
 import { Header } from "../components/Header";
-import { Contact } from "../components/Contact";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { navLinks } from "../styles/layout.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../styles/index.css";
 
-const IndexPage = ({ pageTitle, children }) => {
+const IndexPage = ({}) => {
   const data = useStaticQuery(graphql`
     query IndexPageQuery {
       site {
@@ -19,7 +18,7 @@ const IndexPage = ({ pageTitle, children }) => {
           title
         }
       }
-      allContentfulProjekt(limit: 5) {
+      allContentfulProjekt {
         nodes {
           id
           title
@@ -45,11 +44,6 @@ const IndexPage = ({ pageTitle, children }) => {
         }
       }
 
-      contentfulContact {
-        phone
-        mail
-        linkedin
-      }
       allContentfulSkills {
         nodes {
           slug
@@ -98,21 +92,13 @@ const IndexPage = ({ pageTitle, children }) => {
             />
           </div>
 
-          {/*
-          <Skills skills={data.allContentfulSkills.nodes} /> */}
-
           <div className="projects-title">
-            {/* <header
-              className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white projects-title test-title"
-              style={{ transition: "opacity 2s ease-in-out" }}
-            > */}
             <p
               style={{ color: "#333c2e", fontFamily: "DMS-font" }}
               className="project-title"
             >
               My projects
             </p>{" "}
-            {/* </header> */}
           </div>
         </div>
         <div className="projects-container">
@@ -140,10 +126,11 @@ const IndexPage = ({ pageTitle, children }) => {
             href="#"
             className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
             style={{
-              backgroundColor: "#333c2e", // Replace with your desired color
+              backgroundColor: "#333c2e",
               hover: {
-                backgroundColor: "#yourNewHoverColor", // Replace with your desired hover color
+                backgroundColor: "#yourNewHoverColor",
               },
+              marginBottom: "50px",
             }}
           >
             <Link to="/allprojects" className={navLinks}>
@@ -180,14 +167,12 @@ const IndexPage = ({ pageTitle, children }) => {
 
           <div className="experiences-container">
             <div className="text-column">
-              <div className="flex justify-center">
-                <p
-                  style={{ fontSize: "40px", color: "#eeece2" }}
-                  className="font-semibold"
-                >
-                  Skills
-                </p>
-              </div>
+              <p
+                style={{ fontSize: "40px", color: "#eeece2" }}
+                className="font-semibold"
+              >
+                Skills
+              </p>
               <div className="flex justify-center">
                 <ul
                   className="flex justify-center flex-col custom-ul space-y-2"
@@ -205,20 +190,18 @@ const IndexPage = ({ pageTitle, children }) => {
               </div>
             </div>
             <div className="text-column">
-              <div className="flex justify-center">
-                <p
-                  style={{
-                    fontSize: "40px",
-                    color: "#eeece2",
-                  }}
-                  className="font-semibold"
-                >
-                  Eduaction
-                </p>
-              </div>
-              <div className="flex justify-center">
+              <p
+                style={{
+                  fontSize: "40px",
+                  color: "#eeece2",
+                }}
+                className="font-semibold"
+              >
+                Education
+              </p>
+              <div>
                 <ul
-                  className="flex justify-center flex-col"
+                  className="custom-ul space-y-2"
                   style={{
                     color: "#eeece2",
                     listStyleType: "disc",
@@ -235,19 +218,18 @@ const IndexPage = ({ pageTitle, children }) => {
             </div>
 
             <div className="text-column">
-              <div className="flex justify-center">
-                <p
-                  style={{
-                    fontSize: "40px",
-                    color: "#eeece2",
-                  }}
-                  className="font-semibold"
-                >
-                  Work
-                </p>
-              </div>
-              <div className="flex justify-center ">
+              <p
+                style={{
+                  fontSize: "40px",
+                  color: "#eeece2",
+                }}
+                className="font-semibold"
+              >
+                Work
+              </p>
+              <div>
                 <ul
+                  className="custom-ul space-y-2"
                   style={{
                     color: "#eeece2",
                     listStyleType: "disc",
@@ -268,9 +250,9 @@ const IndexPage = ({ pageTitle, children }) => {
               className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
               style={{
                 backgroundColor: "#eeece2",
-                color: "#333c2e", // Replace with your desired color
+                color: "#333c2e",
                 hover: {
-                  backgroundColor: "#yourNewHoverColor", // Replace with your desired hover color
+                  backgroundColor: "#yourNewHoverColor",
                 },
               }}
             >
@@ -296,11 +278,6 @@ const IndexPage = ({ pageTitle, children }) => {
           </div>
         </div>
       </main>
-      <Contact
-        phone={data.contentfulContact.phone}
-        mail={data.contentfulContact.mail}
-        linkedin={data.contentfulContact.linkedin}
-      />
     </Layout>
   );
 };

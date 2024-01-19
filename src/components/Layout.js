@@ -1,16 +1,10 @@
 import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link, useStaticQuery, graphql } from "gatsby";
+import { Contact } from "../components/Contact";
 import loggo from "../images/loggo.png";
 import AOS from "aos";
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-  siteTitle,
-} from "../styles/layout.module.css";
+import { container, heading } from "../styles/layout.module.css";
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -19,6 +13,11 @@ const Layout = ({ pageTitle, children }) => {
         siteMetadata {
           title
         }
+      }
+      contentfulContact {
+        phone
+        mail
+        linkedin
       }
     }
   `);
@@ -116,7 +115,6 @@ const Layout = ({ pageTitle, children }) => {
                 />
               </svg>
             </button>
-            {/* ... (din övriga kod för sökrutan och knappar) */}
           </div>
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
@@ -153,13 +151,13 @@ const Layout = ({ pageTitle, children }) => {
               </div>
               <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                 <li>
-                  <Link to="/">
+                  <Link to="/contactform">
                     <a
                       href="#"
-                      className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lightgreen-500 md:p-0 md:dark:hover:text-lightgreen-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                       aria-current="page"
                     >
-                      Contact me
+                      Contact
                     </a>
                   </Link>
                 </li>
@@ -167,7 +165,7 @@ const Layout = ({ pageTitle, children }) => {
                   <Link to="/about">
                     <a
                       href="#"
-                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lightgreen-500 md:p-0 md:dark:hover:text-lightgreen-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     >
                       About
                     </a>
@@ -177,7 +175,7 @@ const Layout = ({ pageTitle, children }) => {
                   <Link to="/allprojects">
                     <a
                       href="#"
-                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-lightgreen-500 md:p-0 md:dark:hover:text-lightgreen-300 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     >
                       Projects
                     </a>
@@ -193,7 +191,14 @@ const Layout = ({ pageTitle, children }) => {
         {children}
       </main>
       <footer>
-        <p>&copy; 2024 Your Website</p>
+        <Contact
+          phone={data.contentfulContact.phone}
+          mail={data.contentfulContact.mail}
+          linkedin={data.contentfulContact.linkedin}
+        />
+        <p style={{ display: "flex", justifyContent: "center" }}>
+          &copy; 2024 Your Website
+        </p>
       </footer>
     </div>
   );

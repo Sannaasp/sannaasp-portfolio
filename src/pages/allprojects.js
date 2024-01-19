@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import { Link, graphql } from "gatsby";
 import { Card } from "../components/Card";
 import "../styles/allprojects.css";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 
 const AllProjectsPage = ({ data }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");

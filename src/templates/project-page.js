@@ -5,40 +5,25 @@ import "../styles/projectPage.css";
 import Layout from "../components/Layout";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Card from "../components/Card";
 
 const ProjectPage = ({ data }) => {
-  console.log("Data from GraphQL:", data);
-
-  const image = getImage(data.projekt.image.gatsbyImageData);
-
-  const carouselSettings = {
-    showArrows: true,
-    infiniteLoop: true,
-    showThumbs: false,
-    showStatus: false,
-    autoPlay: true,
-    interval: 5000, // 5 seconds
-  };
+  const images = data.projekt.images.map((image) => getImage(image));
 
   return (
     <Layout>
       <div className="project-page-container">
         <div className="project-page-header">
           <div className="carousel-container">
-            <Carousel {...carouselSettings}>
-              {data.projekt.images.map((image, index) => {
-                const images = getImage(image.gatsbyImageData);
-                return (
-                  <div key={index}>
-                    <GatsbyImage
-                      image={images}
-                      alt={`Slide ${index + 1}`}
-                      className="carousel-image"
-                    />
-                  </div>
-                );
-              })}
+            <Carousel autoPlay infiniteLoop className="w-full h-full">
+              {images.map((image, index) => (
+                <div key={index} className="h-full w-full">
+                  <GatsbyImage
+                    className="object-cover h-full w-full"
+                    image={image}
+                    alt={`Project Image ${index + 1}`}
+                  />
+                </div>
+              ))}
             </Carousel>
           </div>
           <div className="project-page-text">
@@ -64,9 +49,9 @@ const ProjectPage = ({ data }) => {
                 href={data.projekt.link}
                 className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
                 style={{
-                  backgroundColor: "#333c2e", // Replace with your desired color
+                  backgroundColor: "#333c2e",
                   hover: {
-                    backgroundColor: "#yourNewHoverColor", // Replace with your desired hover color
+                    backgroundColor: "#yourNewHoverColor",
                   },
                 }}
               >
@@ -90,30 +75,18 @@ const ProjectPage = ({ data }) => {
             </div>
           </div>
         </div>
-
-        {/* <div className="gallery">
-          {data.projekt.images.map((image, index) => {
-            const images = getImage(image.gatsbyImageData);
-            return (
-              <div key={index} className="gallery-item">
-                <GatsbyImage image={images} alt="" className="image-size" />
-              </div>
-            );
-          })}
-        </div> */}
       </div>
     </Layout>
   );
 };
+
+// Denna GraphQL-fråga används för att hämta information om ett projekt från Contentful baserat på dess unika slug. Den extraherar projektets titel, länk, beskrivningar (i form av en lista), lång beskrivning och bilder för användning i den associerade Gatsby-sidan.
 
 export const pageQuery = graphql`
   query ($slug: String!) {
     projekt: contentfulProjekt(slug: { eq: $slug }) {
       title
       link
-      image {
-        gatsbyImageData
-      }
       descriptions {
         descriptions
       }

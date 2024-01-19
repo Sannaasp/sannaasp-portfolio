@@ -1,5 +1,4 @@
 import * as React from "react";
-import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/Layout";
 import "../styles/about.css";
 import { useStaticQuery, graphql } from "gatsby";
@@ -51,21 +50,13 @@ const AboutPage = () => {
   return (
     <main>
       <Layout>
-        {/* <img
-          className="about-img"
-          src={data.contentfulAboutMe.aboutImgage.file.url}
-          alt="Header Image"
-        /> */}
         <div></div>
 
         <div className="about-flex">
-          {/* <header
-            className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white custom-header"
-            style={{ transition: "opacity 2s ease-in-out" }}
-          > */}
           <div className="about-box">
-            <h1 className="about-title">{data.contentfulAboutMe.aboutTitle}</h1>
-            {/* </header> */}
+            <h1 style={{ fontFamily: "DMS-font" }} className="about-title">
+              {data.contentfulAboutMe.aboutTitle}
+            </h1>
 
             <div className="about-container">
               <p>{data.contentfulAboutMe.aboutText.aboutText}</p>

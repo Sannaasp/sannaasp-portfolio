@@ -3,9 +3,6 @@
   justify-content: center;
 }
 
-.projects-container-title {
-}
-
 .category-buttons {
   display: flex;
   margin-bottom: 50px;
@@ -22,5 +19,4 @@
 .category-buttons button.active {
   background-color: #333c2e;
   color: #ffffff;
-  /* Lägg till andra stilar för aktiv knapp här om du vill */
 }
